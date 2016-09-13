@@ -354,6 +354,7 @@ class SaveOperation: ConcurrentOperation {
 		
 		if queue.operationCount == 0 {
 			// At this point, we know all relationships are updated
+            self.relationshipOperationQueue.removeObserver(self, forKeyPath: "operations")
 			self.updateResource()
 		}
 	}
